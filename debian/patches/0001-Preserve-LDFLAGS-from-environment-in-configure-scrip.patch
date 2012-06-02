@@ -1,0 +1,25 @@
+From d3a7d3fe566ac4b0dcfc214a5e72878f93acdfb5 Mon Sep 17 00:00:00 2001
+From: Tino Keitel <tino.keitel@tikei.de>
+Date: Mon, 4 Jun 2012 18:33:33 +0200
+Subject: [PATCH] Preserve $LDFLAGS from environment in configure script
+
+This is required for Debian hardening flags
+---
+ configure |    1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/configure b/configure
+index cb608be..163637b 100755
+--- a/configure
++++ b/configure
+@@ -54,7 +54,6 @@ STDLIB="-L/usr/lib"
+ prefix=${prefix:=/usr/local}
+ CFLAGS=${CFLAGS:=-Wall -ggdb -O2}
+ CC=${CC:=gcc}
+-LDFLAGS=""
+ LIBS="-lstdc++"
+ LDIRS=
+ MOC=moc
+-- 
+1.7.10
+

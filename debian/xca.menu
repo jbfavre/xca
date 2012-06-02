@@ -1,0 +1,6 @@
+?package(xca):\
+    needs="X11"\
+    section="Applications/System/Security"\
+    title="XCA"\
+    icon32x32="/usr/share/pixmaps/xca-32x32.xpm"\
+    command="/usr/bin/xca"

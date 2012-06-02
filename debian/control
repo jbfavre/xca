@@ -1,0 +1,23 @@
+Source: xca
+Section: x11
+Priority: optional
+Maintainer: Tino Keitel <tino+debian@tikei.de>
+Build-Depends: debhelper (>= 5), libqt4-dev (>= 4.2), libssl-dev, linuxdoc-tools, libltdl-dev, pkg-config, dpkg-dev (>= 1.16.1~)
+Standards-Version: 3.9.3
+Homepage: http://xca.sourceforge.net
+Vcs-Git: http://git.hohnstaedt.de/xca.git
+
+Package: xca
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: x509 Certification Authority management tool based on QT4
+ XCA creates and manages Certificate authorities and helps the user to
+ create and manage keys, certificates, certificate sign requests,
+ certificate revocation lists etc.
+ .
+ All data is saved in an encrypted, portable database, and can be exported
+ in various standard formats. XCA is also available for MacOS X and
+ Windows systems.
+ .
+ For a good workflow, certificate templates can be defined to make the
+ creation of new certificates an easy task.

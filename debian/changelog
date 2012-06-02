@@ -1,0 +1,77 @@
+xca (0.9.3-1) unstable; urgency=low
+
+  * new upstream version
+  * remove patch to search in multiarch library path, upstream now uses
+    pkg-config
+  * add pkg-config to Build-Depends
+  * build with hardening flags enabled
+  * patch configure script to preserve $CPPFLAGS and $LDFLAGS
+  * bump standards version to 3.9.3, no changes needed
+
+ -- Tino Keitel <tino+debian@tikei.de>  Sat, 02 Jun 2012 22:15:06 +0200
+
+xca (0.9.1-1) unstable; urgency=low
+
+  * New upstream version (Closes: #650367)
+
+ -- Tino Keitel <tino+debian@tikei.de>  Sat, 03 Dec 2011 12:27:04 +0100
+
+xca (0.9.1~git7ffc768-2) unstable; urgency=low
+
+  * fix configure script to handle multiarch libraries (Closes: #642823)
+
+ -- Tino Keitel <tino+debian@tikei.de>  Tue, 25 Oct 2011 22:04:33 +0200
+
+xca (0.9.1~git7ffc768-1) unstable; urgency=low
+
+  * build from release.0.9.x upstream branch (Closes: #605141, #615796)
+  * add build-indep and build-arch build targets to please lintian
+  * bump standards version to 3.9.2
+
+ -- Tino Keitel <tino+debian@tikei.de>  Mon, 04 Jul 2011 10:51:20 +0200
+
+xca (0.9.0-1) unstable; urgency=low
+
+  * new upstream version
+  * bump standards version to 3.9.1
+  * remove patches, they are included in the upstream source:
+    - add_32x32_icon-0.8.1
+    - manpage_typo-0.8.1
+
+ -- Tino Keitel <tino+debian@tikei.de>  Thu, 30 Sep 2010 11:45:15 +0200
+
+xca (0.8.1-1) unstable; urgency=low
+
+  * new upstream version 0.8.1
+  * change source format to 3.0 (quilt)
+  * add ${misc:Depends}, found by lintian
+  * add 32x32 pixel sized menu icon, to please lintian
+  * added patch to fix a manpage typo, found by lintian
+
+ -- Tino Keitel <tino+debian@tikei.de>  Sun, 10 Jan 2010 22:17:39 +0100
+
+xca (0.8.0-1) unstable; urgency=low
+
+  * new upstream version (Closes: #560509)
+  * add libltdl-dev build-dep, required by xca 0.8.0
+  * provide a directory for the documentation in the configure call
+  * actually invoke the configure target
+  * correctly declare the installation path
+  * no need to install HTML documentation via dh_installdocs, make install
+    does it
+  * no need to remove misplaced HTML documentation anymore
+  * use the generated Local.mak instead of a separate configure-stamp
+
+ -- Tino Keitel <tino+debian@tikei.de>  Tue, 15 Dec 2009 23:01:45 +0100
+
+xca (0.7.0-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Tino Keitel <tino+debian@tikei.de>  Mon, 14 Sep 2009 20:55:44 +0200
+
+xca (0.6.4-35-g6c2d6a6-1) UNRELEASED; urgency=low
+
+  * Initial release. (Closes: #519003)
+
+ -- Tino Keitel <tino+debian@tikei.de>  Fri, 06 Mar 2009 20:58:46 +0100

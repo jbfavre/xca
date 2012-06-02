@@ -1,0 +1,66 @@
+#!/usr/bin/make -f
+
+DPKG_EXPORT_BUILDFLAGS = 1
+include /usr/share/dpkg/buildflags.mk
+
+configure: Local.mak
+
+Local.mak:
+	dh_testdir
+	CF=$(CPPFLAGS) docdir=/usr/share/doc/xca prefix=/usr ./configure
+
+build-arch: build
+
+build-indep: build
+
+build: build-stamp
+
+build-stamp: Local.mak
+	$(MAKE)
+	touch $@
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp
+	$(MAKE) distclean
+	dh_clean 
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	dh_installdirs
+	$(MAKE) destdir=$(CURDIR)/debian/xca/ install
+	rm -rf $(CURDIR)/debian/xca/usr/man
+
+binary-indep: build install
+
+binary-arch: build install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs changelog
+	dh_installdocs AUTHORS VERSION
+	dh_install
+	dh_installmenu
+	dh_installman
+	dh_strip
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+
+UPSTREAMTAG=upstream/0.9.3
+SOURCEPKG=$(shell dpkg-parsechangelog | sed  -n 's/^Source: \(.*\)/\1/p')
+UPSTREAM=$(shell dpkg-parsechangelog |  sed -n 's/^Version: \(.*\)-[^-]*/\1/p')
+ORIG=${SOURCEPKG}_${UPSTREAM}.orig.tar.gz
+
+get-orig-source:
+	git archive --format=tar ${UPSTREAMTAG} --prefix=${SOURCEPKG}_${UPSTREAM}/ | gzip -9 > ../${ORIG}
+
+.PHONY: build clean binary-indep binary-arch binary install configure get-orig-source

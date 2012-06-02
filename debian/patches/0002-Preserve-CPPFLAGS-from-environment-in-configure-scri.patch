@@ -1,0 +1,26 @@
+From ff6796af07de9eb11f8cbb56cf9034053a9c55c0 Mon Sep 17 00:00:00 2001
+From: Tino Keitel <tino.keitel@tikei.de>
+Date: Mon, 4 Jun 2012 18:34:29 +0200
+Subject: [PATCH] Preserve $CPPFLAGS from environment in configure script
+
+This is required for Debian hardening flags
+---
+ configure |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configure b/configure
+index 163637b..10d15f5 100755
+--- a/configure
++++ b/configure
+@@ -187,7 +187,7 @@ check_frameworks() {
+ if test "$#" = "0" && test -z "$DARWIN" && test -z "$QTDIR" && \
+    pkg-config QtGui openssl --libs >/dev/null;
+ then
+-  CF="`pkg-config QtGui openssl --cflags`"
++  CF="`pkg-config QtGui openssl --cflags` ${CF}"
+   LIBS="`pkg-config QtGui openssl --libs` -lltdl"
+ else
+   by_hand=true
+-- 
+1.7.10
+
