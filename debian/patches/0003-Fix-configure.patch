@@ -1,8 +1,6 @@
-Index: xca/configure
-===================================================================
---- xca.orig/configure	2013-10-10 21:23:58.583331503 +0800
-+++ xca/configure	2013-10-10 21:25:07.714855165 +0800
-@@ -188,7 +188,7 @@
+--- a/configure
++++ b/configure
+@@ -188,7 +188,7 @@ if test "$#" = "0" && test -z "$DARWIN"
     pkg-config QtGui openssl --libs >/dev/null;
  then
    CF="`pkg-config QtGui openssl --cflags` ${CF}"
