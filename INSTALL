@@ -1,0 +1,110 @@
+
+-------------------=[ XCA ]=---------------------
+
+A graphical user interface to OpenSSL.
+
+
+Requirements:
+==============
+
+for compilation, you need the following Libraries:
+
+QT          >=  4.4.0  from http://www.troll.no
+OpenSSL     >=  0.9.8  from http://www.openssl.org
+
+GNU C++ compiler >= 3.1.0
+GNU make
+
+
+Installation:
+=============
+
+Configuration:
+--------------
+XCA comes with its own configuration tool that has no
+relationship with the GNU "autoconf" and "automake" tools.
+Just the naming and invokation looks like it. Thus the
+usual way to configure and build a Package is the same:
+$ ./configure; make; make install
+
+You can build in a different subdirectory:
+ - cd into the build directory and
+ - call configure by its full path.
+For example, if you ar in the freshly unpacked xca-0.9.1 directory:
+  mkdir Build && cd Build && ../configure && make -j10
+To clean all built files: rm -rf Build
+
+If you have a special setup, you can predefine the following
+variables: CC, LD, STRIP, CFLAGS, prefix. e.g.:
+$ CC="ccache gcc" STRIP=: CFLAGS="-Wall -g" prefix=/opt/xca ./configure
+to have a cached build and to not strip xca when installing it.
+XCA expects the translationfiles in /opt/xca/share/xca/
+and installs itself to /opt/xca/bin/
+
+The header and library files were searched in:
+"$QTDIR /usr /usr/X11R6 /usr/local"
+and all directorys supplied at the commandline of configure.
+
+The QT installation dir should not be supplied at the CMDline of configure
+but rather written to the $QTDIR environment variable as it is done
+with the most distributions.
+
+If for example your shiny recent QT is in /home/chris/aaa/src/qt4
+and your new OpenSSL is installed in /usr/local/ssl
+invoke configure like this:
+----------------------------------------------
+$ export QTDIR=/home/chris/aaa/src/qt4
+$ ./configure /usr/local/ssl
+Found: qobject.h at /home/chris/aaa/src/qt4/include
+Found: libqt.so at /home/chris/aaa/src/qt4/lib
+Found: openssl/opensslv.h at /usr/local/ssl/include
+Found: libcrypto.so at /usr/local/ssl/lib
+The Versions of the used libraries are:
+.....
+$
+---------------------------------------------
+
+This writes all found settings, vars and headers to
+"Local.mak".
+
+the variables "prefix" and "docdir" may be set while invoking
+configure, like:
+
+$ prefix=/usr docdir=/usr/share/doc/xca ./configure
+If docdir is unset, $prefix/share/xca will be used.
+
+After Local.mak was created by configure it can be used
+and modified for your needs.
+
+Building:
+-----------
+The Makefiles do support parallel builds (-j)
+targets:
+all, xca :  builds the app
+install  :  installs the app
+headers  :  UICs the headers in ui/ needed by other files.
+clean    :  deletes all builded files
+distclean:  deletes also Local.mak
+xca.exe  :  W32 executable (see INSTALL.w32)
+setup.exe:  W32 installer
+
+Installing:
+------------
+make destdir=/my/virtual/root
+provides /my/virtual/root/ as root-directory for installation
+to be mounted by others as root or as installdir for
+package builders.
+
+
+Running/invoking:
+=================
+
+a detailed manual can be found in docs/
+
+
+----------------------------------------------------------
+if there are any questions regarding this software,
+dont hesitate to contact me:
+
+christian@hohnstaedt.de
+
