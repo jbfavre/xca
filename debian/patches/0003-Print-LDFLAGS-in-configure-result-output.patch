@@ -7,8 +7,6 @@ Subject: [PATCH] Print LDFLAGS in configure result output
  configure |    1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/configure b/configure
-index 10d15f5..9e1a7d2 100755
 --- a/configure
 +++ b/configure
 @@ -216,6 +216,7 @@ cat << EOF
@@ -19,6 +17,3 @@ index 10d15f5..9e1a7d2 100755
  LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
  PREFIX=${prefix}
  docdir=${docdir}
--- 
-1.7.10
-

@@ -1,4 +1,5 @@
 # debian/source/git-patches exported from git by quilt-patches-deb-export-hook
+0001-Fix-for-openssl-1.0.1i.patch
 0001-Preserve-LDFLAGS-from-environment-in-configure-scrip.patch
 0002-Preserve-CPPFLAGS-from-environment-in-configure-scri.patch
 0003-Print-LDFLAGS-in-configure-result-output.patch

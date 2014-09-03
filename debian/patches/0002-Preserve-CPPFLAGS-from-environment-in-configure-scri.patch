@@ -8,8 +8,6 @@ This is required for Debian hardening flags
  configure |    2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/configure b/configure
-index 163637b..10d15f5 100755
 --- a/configure
 +++ b/configure
 @@ -187,7 +187,7 @@ check_frameworks() {
@@ -21,6 +19,3 @@ index 163637b..10d15f5 100755
    LIBS="`pkg-config QtGui openssl --libs` -lltdl"
  else
    by_hand=true
--- 
-1.7.10
-

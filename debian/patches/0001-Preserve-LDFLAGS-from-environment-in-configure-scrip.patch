@@ -8,8 +8,6 @@ This is required for Debian hardening flags
  configure |    1 -
  1 file changed, 1 deletion(-)
 
-diff --git a/configure b/configure
-index cb608be..163637b 100755
 --- a/configure
 +++ b/configure
 @@ -54,7 +54,6 @@ STDLIB="-L/usr/lib"
@@ -20,6 +18,3 @@ index cb608be..163637b 100755
  LIBS="-lstdc++"
  LDIRS=
  MOC=moc
--- 
-1.7.10
-
