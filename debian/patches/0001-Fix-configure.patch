@@ -1,0 +1,13 @@
+Index: xca/configure
+===================================================================
+--- xca.orig/configure	2013-10-10 21:23:58.583331503 +0800
++++ xca/configure	2013-10-10 21:25:07.714855165 +0800
+@@ -188,7 +188,7 @@
+    pkg-config QtGui openssl --libs >/dev/null;
+ then
+   CF="`pkg-config QtGui openssl --cflags` ${CF}"
+-  LIBS="`pkg-config QtGui openssl --libs` -lltdl"
++  LIBS="`pkg-config QtGui openssl --libs` -lltdl -lstdc++"
+ else
+   by_hand=true
+ fi
